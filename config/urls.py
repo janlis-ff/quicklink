@@ -25,6 +25,10 @@ urlpatterns += [
         SpectacularSwaggerView.as_view(url_name="api-schema"),
         name="api-docs",
     ),
+    path(
+        "api/links/",
+        include("quicklink.links.urls", namespace="links"),
+    ),
 ]
 
 if settings.DEBUG:
