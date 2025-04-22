@@ -18,3 +18,7 @@ Once the application is running, you can access a sample landing page at `http:/
 ```bash
 docker compose run --rm django pytest
 ```
+
+### API Documentation
+
+You can access the OpenAPI documentation (swagger UI) at `http://localhost:8000/api/docs/`.
