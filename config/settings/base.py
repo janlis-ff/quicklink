@@ -86,6 +86,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "quicklink.users",
+    "quicklink.links",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -344,7 +345,7 @@ SPECTACULAR_SETTINGS = {
     "TITLE": "QuickLink API",
     "DESCRIPTION": "Documentation of API endpoints of QuickLink",
     "VERSION": "1.0.0",
-    "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
+    "SERVE_PERMISSIONS": ["rest_framework.permissions.AllowAny"],
     "SCHEMA_PATH_PREFIX": "/api/",
 }
 # Your stuff...

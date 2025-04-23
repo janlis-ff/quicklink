@@ -11,6 +11,7 @@
     {% endblock title %}
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="csrf-token" content="{{ csrf_token }}">
   <meta name="description"
         content="A simple URL shortener application built with Django and DRF." />
   <meta name="author"
@@ -38,19 +39,17 @@
 
 
 <!-- Bootstrap JS -->
-<script defer
+<script
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
         integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
         crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
-<!-- Your stuff: Third-party javascript libraries go here -->
 
-
-<!-- place project specific Javascript in this file -->
-
-  
-  <script defer src="{% static 'js/project.js' %}"></script>
-
+<!-- jQuery JS -->
+<script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
 
 {% endblock javascript %}
 </head>
@@ -68,7 +67,7 @@
                 aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="{% url 'home' %}">QuickLink</a>
+        <a class="navbar-brand" href="{% url 'home' %}"><span style='color:#0d6efd'>Quick</span>Link</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item active">

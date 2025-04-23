@@ -108,7 +108,6 @@ select = [
   "ERA",
   "PD",
   "PGH",
-  "PL",
   "TRY",
   "FLY",
   # "NPY",
@@ -119,6 +118,8 @@ select = [
   "RUF",
 ]
 ignore = [
+  "COM812",
+  "F401",
   "S101", # Use of assert detected https://docs.astral.sh/ruff/rules/assert/
   "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
   "SIM102", # sometimes it's better to nest

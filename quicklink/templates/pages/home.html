@@ -1,3 +1,66 @@
 {% extends "base.html" %}
+{% load static %}
 
+{% block inline_javascript %}
+    {{ block.super }}
+    <script src="{% static 'js/confetti.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
 
+{% block content %}
+
+<div class="container text-center mt-5">
+    <h1 class="display-3 fw-bold mb-4"><span style='color:#0d6efd'>Quick</span>Link</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+        <form method="POST" id="shortenLinkForm">
+            <div class="mb-3">
+            <input type="url" class="form-control" id="original-url" name="url" placeholder="https://example.com/your-very-long-url" required>
+            </div>
+            <div class="mb-3">
+            <input type="text" class="form-control" style="font-size:90%" id="custom-slug" name="slug" placeholder="Custom slug (optional, letters only)">
+            </div>
+            <button type="submit" class="btn btn-primary px-3">Make it short!</button>
+        </form>
+        </div>
+    </div>
+</div>
+
+<div id="shortLinkModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Here's your link!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="shortLinkURL" value="abcdef" disabled>
+                <button class="btn btn-outline-secondary" type="button" id="shortLinkCopyBtn">⧉</button>
+              </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+{% if request.user.is_authenticated %}
+<div class="container-md">
+    <h5 class="mt-5">Your previous links</h5>
+    <table class="table" id="userLinksTable">
+        <thead>
+            <tr>
+                <th scope="col">URL</th>
+                <th scope="col">Original URL</th>
+                <th scope="col">Views</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan='3' class='text-muted'>Loading...</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+{% endblock content %}
