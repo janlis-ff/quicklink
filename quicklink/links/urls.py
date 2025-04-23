@@ -10,4 +10,9 @@ urlpatterns = [
         views.LinkCreateView.as_view(),
         name="link-create",
     ),
+    path(
+        "user-links/",
+        views.UserLinkListView.as_view(),
+        name="user-link-list",
+    ),
 ]
