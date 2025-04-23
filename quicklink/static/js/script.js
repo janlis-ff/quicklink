@@ -83,7 +83,7 @@ $.ajaxSetup({
                 console.error(response);
             },
         });
-        
+
     }
 
     FORM.on("submit", (e) => {
@@ -92,7 +92,7 @@ $.ajaxSetup({
         return true;
     });
 
-    // Handle "copy to clipboard" button 
+    // Handle "copy to clipboard" button
     $(document).on("click", "#shortLinkCopyBtn", function(){
         let input = $("#shortLinkURL");
         navigator.clipboard.writeText(input[0].value).then(() => {

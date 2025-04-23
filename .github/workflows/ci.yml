@@ -48,7 +48,7 @@ jobs:
         with:
           push: false
           load: true
-          files: docker-compose.local.yml
+          files: docker-compose.yml
           targets: django
           set: |
             django.cache-from=type=gha,scope=django-cached-tests
@@ -67,13 +67,13 @@ jobs:
             docs.cache-to=type=gha,scope=cached-docs,mode=max
 
       - name: Check DB Migrations
-        run: docker compose -f docker-compose.local.yml run --rm django python manage.py makemigrations --check
+        run: docker compose -f docker-compose.yml run --rm django python manage.py makemigrations --check
 
       - name: Run DB Migrations
-        run: docker compose -f docker-compose.local.yml run --rm django python manage.py migrate
+        run: docker compose -f docker-compose.yml run --rm django python manage.py migrate
 
       - name: Run Django Tests
-        run: docker compose -f docker-compose.local.yml run django pytest
+        run: docker compose -f docker-compose.yml run django pytest
 
       - name: Tear down the Stack
-        run: docker compose -f docker-compose.local.yml down
+        run: docker compose -f docker-compose.yml down
