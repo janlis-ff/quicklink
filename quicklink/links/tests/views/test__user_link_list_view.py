@@ -61,8 +61,8 @@ class TestLinkListView:
         assert response.json() == [
             {
                 "id": link.id,
-                "slug": "aaa",
                 "url": "https://example.com/link",
+                "short_url": "http://testserver/aaa",
                 "clicks_count": 0,
                 "created_at": "2020-01-01T01:00:00+01:00",
             },

@@ -22,9 +22,15 @@ class LinkSerializer(serializers.ModelSerializer):
         required=False,
         allow_blank=False,
         allow_null=True,
+        write_only=True,
     )
+    short_url = serializers.SerializerMethodField()
     clicks_count = serializers.IntegerField(read_only=True)
     created_at = serializers.DateTimeField(read_only=True)
+
+    def get_short_url(self, obj):
+        absolute_url = self.context.get("request").build_absolute_uri("/")
+        return f"{absolute_url}{obj.slug}"
 
     def validate_slug(self, value):
         if value is None:
@@ -56,6 +62,7 @@ class LinkSerializer(serializers.ModelSerializer):
             "id",
             "slug",
             "url",
+            "short_url",
             "clicks_count",
             "created_at",
         )

@@ -149,8 +149,8 @@ class TestLinkCreateView:
         assert response.status_code == status.HTTP_201_CREATED
         assert response.json() == {
             "id": created_obj.id,
-            "slug": expected_slug,
             "url": url,
+            "short_url": f"http://testserver/{expected_slug}",
             "clicks_count": 0,
             "created_at": "2020-01-01T01:00:00+01:00",
         }
