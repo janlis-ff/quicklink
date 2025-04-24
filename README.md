@@ -5,6 +5,8 @@
 # QuickLink
 A simple URL shortener application built with Django and DRF.
 
+![ezgif-497d72c00fc707](https://github.com/user-attachments/assets/3f557d70-5822-44ac-944f-3b77d6745a11)
+
 ### Running the project locally
 
 ```bash
